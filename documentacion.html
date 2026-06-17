@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TD Nutrition — Documentación del Proyecto</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    :root {
+      --orange: #FF7A00;
+      --orange-light: #ff9433;
+      --black: #111111;
+      --dark: #1a1a1a;
+      --card: #1e1e1e;
+      --border: #2a2a2a;
+      --white: #ffffff;
+      --gray: #a0a0a0;
+      --light-gray: #e0e0e0;
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --purple: #a855f7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 40px rgba(0,0,0,0.12);
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 60%, #1e1206 100%);
+      padding: 80px 60px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,122,0,0.2) 0%, transparent 70%);
+      top: -150px; right: -100px;
+      border-radius: 50%;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .cover-inner { position: relative; z-index: 1; }
+
+    .logo-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .logo-td {
+      background: var(--orange);
+      color: white;
+      font-size: 28px;
+      font-weight: 900;
+      padding: 8px 16px;
+      border-radius: 8px;
+      letter-spacing: 2px;
+    }
+    .logo-name {
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    .logo-name span { color: var(--orange); }
+
+    .cover h1 {
+      font-size: 38px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .cover h1 span { color: var(--orange); }
+
+    .cover-subtitle {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .meta-value { font-size: 14px; color: white; font-weight: 600; }
+
+    .cover-badges {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .tech-badge {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid;
+    }
+    .badge-orange { background: rgba(255,122,0,0.15); color: var(--orange); border-color: rgba(255,122,0,0.3); }
+    .badge-blue { background: rgba(59,130,246,0.15); color: #60a5fa; border-color: rgba(59,130,246,0.3); }
+    .badge-green { background: rgba(34,197,94,0.15); color: #4ade80; border-color: rgba(34,197,94,0.3); }
+    .badge-purple { background: rgba(168,85,247,0.15); color: #c084fc; border-color: rgba(168,85,247,0.3); }
+
+    /* ── Content sections ── */
+    .content { padding: 0 60px 60px; }
+
+    /* ── Section header ── */
+    .section {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 2px solid #f0f0f0;
+    }
+    .section:first-child { border-top: none; }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      background: var(--orange);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 24px;
+    }
+
+    /* ── Cards grid ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards-1 { grid-template-columns: 1fr; }
+
+    .card {
+      background: #fafafa;
+      border: 1.5px solid #ececec;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .icon-orange { background: rgba(255,122,0,0.12); }
+    .icon-blue   { background: rgba(59,130,246,0.12); }
+    .icon-green  { background: rgba(34,197,94,0.12); }
+    .icon-purple { background: rgba(168,85,247,0.12); }
+
+    .card p { font-size: 12.5px; color: #555; line-height: 1.65; }
+
+    /* ── Code block ── */
+    .code-block {
+      background: #0f1117;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+    .code-label {
+      font-size: 11px;
+      color: #888;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .code-label::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+    pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #e0e0e0;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+    .kw  { color: #c792ea; } /* keyword */
+    .fn  { color: #82aaff; } /* function */
+    .str { color: #c3e88d; } /* string */
+    .cm  { color: #546e7a; } /* comment */
+    .or  { color: #ff9800; } /* orange - jsx/component */
+    .num { color: #f78c6c; } /* number */
+
+    /* ── File tree ── */
+    .file-tree {
+      background: #0f1117;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .file-tree pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: #aaa;
+      line-height: 1.9;
+    }
+    .ft-folder { color: #82aaff; }
+    .ft-file   { color: #c3e88d; }
+    .ft-orange { color: #ff9800; }
+    .ft-gray   { color: #546e7a; }
+
+    /* ── Tag pills ── */
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 2px;
+    }
+    .pill-orange { background: rgba(255,122,0,0.1); color: var(--orange); }
+    .pill-blue   { background: rgba(59,130,246,0.1); color: #3b82f6; }
+    .pill-green  { background: rgba(34,197,94,0.1); color: #16a34a; }
+    .pill-gray   { background: #f0f0f0; color: #555; }
+
+    /* ── Table ── */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    th { background: #111; color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; }
+    th:first-child { border-radius: 8px 0 0 0; }
+    th:last-child  { border-radius: 0 8px 0 0; }
+    td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; color: #333; vertical-align: top; }
+    tr:hover td { background: #fafafa; }
+    td code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #d97706;
+    }
+
+    /* ── Color palette ── */
+    .palette { display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
+    .color-swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #ececec;
+      width: 130px;
+    }
+    .swatch-color { height: 60px; }
+    .swatch-info { padding: 8px 10px; background: white; }
+    .swatch-name { font-size: 12px; font-weight: 700; color: #111; }
+    .swatch-hex  { font-size: 11px; color: #888; font-family: 'JetBrains Mono', monospace; }
+
+    /* ── List ── */
+    ul.feature-list { list-style: none; margin: 12px 0; }
+    ul.feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 13px;
+      color: #444;
+    }
+    ul.feature-list li::before {
+      content: '→';
+      color: var(--orange);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    ul.feature-list li strong { color: #111; }
+
+    /* ── Page break ── */
+    .page-break { page-break-before: always; padding-top: 40px; }
+
+    /* ── Highlight box ── */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255,122,0,0.06), rgba(255,148,51,0.03));
+      border: 1.5px solid rgba(255,122,0,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .highlight-box h4 { color: var(--orange); font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+    .highlight-box p  { font-size: 13px; color: #555; }
+
+    /* ── Footer ── */
+    .doc-footer {
+      background: #111;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+    }
+    .doc-footer span { color: var(--orange); }
+
+    /* ── Credential box ── */
+    .cred-box {
+      background: #f8f8f8;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 8px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+    .cred-label { font-size: 11px; color: #888; font-family: 'Inter', sans-serif; font-weight: 600; margin-bottom: 4px; }
+
+    /* Print */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; }
+      .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .code-block, .file-tree { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════ COVER ══════════ -->
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="logo-box">
+        <div class="logo-td">TD</div>
+        <div class="logo-name">Nutrition<span>.</span></div>
+      </div>
+
+      <h1>Documentación Técnica<br /><span>Trabajo Final de Front-End</span></h1>
+      <p class="cover-subtitle">Tienda online de suplementos deportivos y equipamiento fitness</p>
+
+      <div class="cover-meta">
+        <div class="meta-item">
+          <span class="meta-label">Autores</span>
+          <span class="meta-value">Thomas Jose Daruich &amp; David Medina</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Repositorio</span>
+          <span class="meta-value">github.com/thomasjosed/TD-Nutrition</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Año</span>
+          <span class="meta-value">2025</span>
+        </div>
+      </div>
+
+      <div class="cover-badges">
+        <span class="tech-badge badge-orange">React 19</span>
+        <span class="tech-badge badge-blue">Vite</span>
+        <span class="tech-badge badge-green">CSS Modules</span>
+        <span class="tech-badge badge-purple">React Router v7</span>
+        <span class="tech-badge badge-orange">Context API</span>
+        <span class="tech-badge badge-blue">LocalStorage</span>
+        <span class="tech-badge badge-green">Fetch API</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ CONTENT ══════════ -->
+  <div class="content">
+
+    <!-- 1. Descripción General -->
+    <div class="section">
+      <div class="section-number">1</div>
+      <h2 class="section-title">Descripción General del Proyecto</h2>
+      <p class="section-desc">¿Qué es TD Nutrition y cuál fue el objetivo del proyecto?</p>
+
+      <div class="highlight-box">
+        <h4>🎯 Objetivo del proyecto</h4>
+        <p>TD Nutrition es una tienda online completa de suplementos deportivos y equipamiento fitness, desarrollada como trabajo final de la materia Front-End. El objetivo fue demostrar dominio de las tecnologías modernas de desarrollo web: React 19, Vite, CSS Modules, React Router, Context API, Hooks personalizados, LocalStorage y diseño responsive premium.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-orange">🏋️</div>Categoría del producto</div>
+          <p>Tienda e-commerce especializada en suplementación deportiva (proteínas, creatina, pre-entreno, vitaminas, fat burners, mass gainers) y equipamiento de gimnasio (mancuernas, barras olímpicas, bolsas de boxeo, poleas y accesorios).</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-blue">👨‍💻</div>Tipo de proyecto</div>
+          <p>Single Page Application (SPA) con navegación del lado del cliente, gestión de estado global sin librerías externas, autenticación simulada con persistencia en LocalStorage y diseño dark premium responsive.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Tecnologías -->
+    <div class="section">
+      <div class="section-number">2</div>
+      <h2 class="section-title">Tecnologías Utilizadas</h2>
+      <p class="section-desc">Stack tecnológico completo del proyecto y justificación de cada elección.</p>
+
+      <table>
+        <tr>
+          <th>Tecnología</th>
+          <th>Versión</th>
+          <th>¿Para qué se usa?</th>
+        </tr>
+        <tr>
+          <td><strong>React</strong></td>
+          <td>19.1.0</td>
+          <td>Framework principal para construir la UI con componentes reutilizables y gestión declarativa del estado.</td>
+        </tr>
+        <tr>
+          <td><strong>Vite</strong></td>
+          <td>6.4.3</td>
+          <td>Herramienta de build ultrarrápida. Reemplaza CRA con HMR instantáneo y bundles optimizados para producción.</td>
+        </tr>
+        <tr>
+          <td><strong>React Router DOM</strong></td>
+          <td>7.6.2</td>
+          <td>Navegación entre páginas del lado del cliente sin recargar. Maneja rutas: /, /products, /about, /contact, /login.</td>
+        </tr>
+        <tr>
+          <td><strong>CSS Modules</strong></td>
+          <td>—</td>
+          <td>Estilos con scope local por componente. Evita colisiones de nombres de clase. Cada componente tiene su .module.css.</td>
+        </tr>
+        <tr>
+          <td><strong>Context API</strong></td>
+          <td>—</td>
+          <td>Estado global sin Redux. Se usa para el carrito de compras (CartContext), tema oscuro/claro (ThemeContext), notificaciones (ToastContext) y autenticación (AuthContext).</td>
+        </tr>
+        <tr>
+          <td><strong>LocalStorage</strong></td>
+          <td>—</td>
+          <td>Persistencia de datos en el navegador: carrito de compras y sesión de usuario se mantienen al recargar la página.</td>
+        </tr>
+        <tr>
+          <td><strong>Fetch API</strong></td>
+          <td>—</td>
+          <td>API nativa del navegador para simular llamadas asíncronas al servicio de datos. Implementada con async/await.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 3. Estructura del Proyecto -->
+    <div class="section page-break">
+      <div class="section-number">3</div>
+      <h2 class="section-title">Estructura de Carpetas del Proyecto</h2>
+      <p class="section-desc">Arquitectura de archivos organizada por funcionalidad (Feature-Based Architecture).</p>
+
+      <div class="file-tree">
+        <div class="code-label">📁 td-nutrition/</div>
+        <pre><span class="ft-orange">td-nutrition/</span>
+├── <span class="ft-folder">public/</span>
+│   └── <span class="ft-folder">images/</span>              <span class="ft-gray"># Imágenes de productos (11 PNGs generados con IA)</span>
+│       ├── <span class="ft-file">whey_protein.png</span>
+│       ├── <span class="ft-file">creatina.png</span>
+│       ├── <span class="ft-file">pre_entreno.png</span>
+│       └── <span class="ft-file">... (11 total)</span>
+├── <span class="ft-folder">src/</span>
+│   ├── <span class="ft-folder">components/</span>           <span class="ft-gray"># Componentes reutilizables</span>
+│   │   ├── <span class="ft-folder">Navbar/</span>           <span class="ft-gray"># Barra de navegación + carrito + auth</span>
+│   │   ├── <span class="ft-folder">Hero/</span>             <span class="ft-gray"># Sección principal de inicio</span>
+│   │   ├── <span class="ft-folder">ProductCard/</span>      <span class="ft-gray"># Tarjeta individual de producto</span>
+│   │   ├── <span class="ft-folder">ProductModal/</span>     <span class="ft-gray"># Modal con detalle del producto</span>
+│   │   ├── <span class="ft-folder">Cart/</span>             <span class="ft-gray"># Drawer lateral del carrito</span>
+│   │   ├── <span class="ft-folder">CategoryFilter/</span>   <span class="ft-gray"># Chips de filtro por categoría</span>
+│   │   ├── <span class="ft-folder">SearchBar/</span>        <span class="ft-gray"># Buscador de productos</span>
+│   │   ├── <span class="ft-folder">Footer/</span>           <span class="ft-gray"># Pie de página completo</span>
+│   │   ├── <span class="ft-folder">Loader/</span>           <span class="ft-gray"># Skeleton loaders</span>
+│   │   ├── <span class="ft-folder">Toast/</span>            <span class="ft-gray"># Sistema de notificaciones</span>
+│   │   └── <span class="ft-folder">ScrollToTop/</span>      <span class="ft-gray"># Botón volver arriba</span>
+│   ├── <span class="ft-folder">context/</span>              <span class="ft-gray"># Estado global (Context API)</span>
+│   │   ├── <span class="ft-file">AuthContext.jsx</span>   <span class="ft-gray"># Autenticación de usuarios</span>
+│   │   ├── <span class="ft-file">CartContext.jsx</span>   <span class="ft-gray"># Carrito de compras</span>
+│   │   ├── <span class="ft-file">ThemeContext.jsx</span>  <span class="ft-gray"># Modo oscuro / claro</span>
+│   │   └── <span class="ft-file">ToastContext.jsx</span>  <span class="ft-gray"># Notificaciones toast</span>
+│   ├── <span class="ft-folder">hooks/</span>                <span class="ft-gray"># Custom Hooks</span>
+│   │   ├── <span class="ft-file">useProducts.js</span>    <span class="ft-gray"># Carga y filtrado de productos</span>
+│   │   ├── <span class="ft-file">useIntersectionObserver.js</span> <span class="ft-gray"># Animaciones al hacer scroll</span>
+│   │   └── <span class="ft-file">useScrollToTop.js</span> <span class="ft-gray"># Scroll al inicio en cambio de ruta</span>
+│   ├── <span class="ft-folder">pages/</span>                <span class="ft-gray"># Páginas completas</span>
+│   │   ├── <span class="ft-folder">Home/</span>             <span class="ft-gray"># Página de inicio</span>
+│   │   ├── <span class="ft-folder">Products/</span>         <span class="ft-gray"># Catálogo completo</span>
+│   │   ├── <span class="ft-folder">About/</span>            <span class="ft-gray"># Quiénes somos</span>
+│   │   ├── <span class="ft-folder">Contact/</span>          <span class="ft-gray"># Formulario de contacto</span>
+│   │   ├── <span class="ft-folder">Login/</span>            <span class="ft-gray"># Login / Registro</span>
+│   │   └── <span class="ft-folder">NotFound/</span>         <span class="ft-gray"># Error 404</span>
+│   ├── <span class="ft-folder">data/</span>
+│   │   └── <span class="ft-file">products.js</span>       <span class="ft-gray"># Catálogo de 40 productos locales</span>
+│   ├── <span class="ft-folder">services/</span>
+│   │   └── <span class="ft-file">api.js</span>            <span class="ft-gray"># Capa de servicio con Fetch API</span>
+│   ├── <span class="ft-folder">styles/</span>
+│   │   └── <span class="ft-file">global.css</span>        <span class="ft-gray"># Design tokens + utilidades globales</span>
+│   ├── <span class="ft-file">App.jsx</span>               <span class="ft-gray"># Raíz: providers + rutas</span>
+│   └── <span class="ft-file">main.jsx</span>              <span class="ft-gray"># Punto de entrada de React</span>
+├── <span class="ft-file">vercel.json</span>               <span class="ft-gray"># Configuración para deploy</span>
+├── <span class="ft-file">vite.config.js</span>
+└── <span class="ft-file">package.json</span></pre>
+      </div>
+    </div>
+
+    <!-- 4. Páginas -->
+    <div class="section">
+      <div class="section-number">4</div>
+      <h2 class="section-title">Páginas de la Aplicación</h2>
+      <p class="section-desc">Descripción de cada página y su contenido principal.</p>
+
+      <table>
+        <tr><th>Ruta</th><th>Página</th><th>Contenido</th></tr>
+        <tr>
+          <td><code>/</code></td>
+          <td><strong>Home</strong></td>
+          <td>Hero section animado, beneficios con íconos SVG (Calidad, Envío, Ciencia, Precio), grilla de 8 productos destacados, banner de estadísticas y marcas.</td>
+        </tr>
+        <tr>
+          <td><code>/products</code></td>
+          <td><strong>Catálogo</strong></td>
+          <td>Grilla completa de 40 productos con buscador en tiempo real, filtros por categoría (10 categorías), ordenamiento por precio/rating, skeleton loaders y modal de detalle.</td>
+        </tr>
+        <tr>
+          <td><code>/about</code></td>
+          <td><strong>Nosotros</strong></td>
+          <td>Hero, tarjetas Misión/Visión, sección de 6 valores fitness con frases motivacionales, historia narrativa de la empresa, sección del equipo con links de Instagram.</td>
+        </tr>
+        <tr>
+          <td><code>/contact</code></td>
+          <td><strong>Contacto</strong></td>
+          <td>Formulario con nombre, email, asunto y mensaje. Validaciones en tiempo real. Panel de información con dirección (Belgrano 146, Concepción, Tucumán), teléfono y horarios.</td>
+        </tr>
+        <tr>
+          <td><code>/login</code></td>
+          <td><strong>Login</strong></td>
+          <td>Diseño split-screen. Panel izquierdo con branding y credenciales demo. Panel derecho con formulario de inicio de sesión y registro con validaciones completas.</td>
+        </tr>
+        <tr>
+          <td><code>/*</code></td>
+          <td><strong>404</strong></td>
+          <td>Página de error 404 animada con mensaje personalizado y botón de regreso al inicio.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 5. Context API -->
+    <div class="section page-break">
+      <div class="section-number">5</div>
+      <h2 class="section-title">Gestión del Estado — Context API</h2>
+      <p class="section-desc">Cómo se maneja el estado global sin usar Redux ni Zustand.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-orange">🛒</div>CartContext</div>
+          <p><strong>Estado:</strong> Lista de productos en el carrito, cantidades y total.<br /><br />
+          <strong>Funciones:</strong> <code>addToCart()</code>, <code>removeFromCart()</code>, <code>updateQuantity()</code>, <code>clearCart()</code>, <code>totalItems</code>, <code>totalPrice</code>.<br /><br />
+          <strong>Persistencia:</strong> Se guarda automáticamente en <code>localStorage</code> y se recupera al recargar la página.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-blue">🔐</div>AuthContext</div>
+          <p><strong>Estado:</strong> Usuario logueado, rol (admin/user), estado de carga.<br /><br />
+          <strong>Funciones:</strong> <code>login(email, password)</code>, <code>register(name, email, pass)</code>, <code>logout()</code>, <code>isAuthenticated</code>, <code>isAdmin</code>.<br /><br />
+          <strong>Persistencia:</strong> Sesión guardada en <code>localStorage</code>. Al recargar mantiene la sesión activa.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-purple">🌙</div>ThemeContext</div>
+          <p><strong>Estado:</strong> Tema actual (<code>dark</code> / <code>light</code>).<br /><br />
+          <strong>Función:</strong> <code>toggleTheme()</code> — alterna entre modo oscuro y claro aplicando el atributo <code>data-theme</code> al <code>&lt;html&gt;</code>.<br /><br />
+          <strong>Persistencia:</strong> Preferencia guardada en <code>localStorage</code>.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-green">🔔</div>ToastContext</div>
+          <p><strong>Estado:</strong> Cola de notificaciones activas.<br /><br />
+          <strong>Función:</strong> <code>addToast(mensaje, tipo)</code> — muestra notificaciones flotantes tipo "Producto agregado al carrito" o "Sesión cerrada". Se auto-eliminan a los 3 segundos.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-label">App.jsx — Composición de Providers (envuelven toda la app)</div>
+        <pre><span class="kw">export default function</span> <span class="fn">App</span>() {
+  <span class="kw">return</span> (
+    <span class="or">&lt;ThemeProvider&gt;</span>
+      <span class="or">&lt;AuthProvider&gt;</span>
+        <span class="or">&lt;CartProvider&gt;</span>
+          <span class="or">&lt;ToastProvider&gt;</span>
+            <span class="or">&lt;BrowserRouter&gt;</span>
+              <span class="or">&lt;Navbar /&gt;</span>        <span class="cm">// Accede a Cart + Auth + Theme</span>
+              <span class="or">&lt;Routes&gt;</span> ... <span class="or">&lt;/Routes&gt;</span>
+              <span class="or">&lt;Footer /&gt;</span>
+            <span class="or">&lt;/BrowserRouter&gt;</span>
+          <span class="or">&lt;/ToastProvider&gt;</span>
+        <span class="or">&lt;/CartProvider&gt;</span>
+      <span class="or">&lt;/AuthProvider&gt;</span>
+    <span class="or">&lt;/ThemeProvider&gt;</span>
+  );
+}</pre>
+      </div>
+    </div>
+
+    <!-- 6. Custom Hooks -->
+    <div class="section">
+      <div class="section-number">6</div>
+      <h2 class="section-title">Custom Hooks (Hooks Personalizados)</h2>
+      <p class="section-desc">Lógica reutilizable extraída en hooks propios para mantener los componentes limpios.</p>
+
+      <div class="cards cards-1">
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-orange">📦</div>useProducts — Carga y filtrado de productos</div>
+          <p>Es el hook más importante del proyecto. Gestiona la carga asíncrona del catálogo, el filtrado por categoría y la búsqueda en tiempo real usando <code>useMemo</code> para evitar recálculos innecesarios.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-label">hooks/useProducts.js — Lógica principal de productos</div>
+        <pre><span class="kw">export function</span> <span class="fn">useProducts</span>() {
+  <span class="kw">const</span> [products, setProducts]     = <span class="fn">useState</span>([]);
+  <span class="kw">const</span> [searchTerm, setSearchTerm] = <span class="fn">useState</span>(<span class="str">''</span>);
+  <span class="kw">const</span> [activeCategory, setActive] = <span class="fn">useState</span>(<span class="str">'all'</span>);
+  <span class="kw">const</span> [loading, setLoading]       = <span class="fn">useState</span>(<span class="kw">true</span>);
+
+  <span class="cm">// Carga inicial — Fetch API simulada con delay</span>
+  <span class="fn">useEffect</span>(() =&gt; {
+    <span class="fn">fetchProducts</span>().<span class="fn">then</span>(data =&gt; <span class="fn">setProducts</span>(data.products));
+  }, []);
+
+  <span class="cm">// Filtrado en tiempo real (sin llamadas extra al servidor)</span>
+  <span class="kw">const</span> filteredProducts = <span class="fn">useMemo</span>(() =&gt; {
+    <span class="kw">let</span> result = products;
+    <span class="kw">if</span> (activeCategory !== <span class="str">'all'</span>)
+      result = result.<span class="fn">filter</span>(p =&gt; p.category === activeCategory);
+    <span class="kw">if</span> (searchTerm.<span class="fn">trim</span>())
+      result = result.<span class="fn">filter</span>(p =&gt; p.title.<span class="fn">includes</span>(searchTerm));
+    <span class="kw">return</span> result;
+  }, [products, activeCategory, searchTerm]);
+
+  <span class="kw">return</span> { products, filteredProducts, loading, searchTerm,
+             setSearchTerm, activeCategory, setActiveCategory };
+}</pre>
+      </div>
+
+      <table>
+        <tr><th>Hook</th><th>Hooks internos que usa</th><th>¿Qué hace?</th></tr>
+        <tr>
+          <td><code>useProducts</code></td>
+          <td>useState, useEffect, useCallback, useMemo</td>
+          <td>Carga el catálogo, filtra por categoría y búsqueda en tiempo real.</td>
+        </tr>
+        <tr>
+          <td><code>useIntersectionObserver</code></td>
+          <td>useRef, useState, useEffect</td>
+          <td>Detecta cuando un elemento entra al viewport para disparar animaciones de aparición (fade-in al hacer scroll).</td>
+        </tr>
+        <tr>
+          <td><code>useScrollToTop</code></td>
+          <td>useEffect, useLocation</td>
+          <td>Hace scroll al tope de la página automáticamente cada vez que el usuario cambia de ruta.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 7. Sistema de Autenticación -->
+    <div class="section page-break">
+      <div class="section-number">7</div>
+      <h2 class="section-title">Sistema de Autenticación</h2>
+      <p class="section-desc">Login, registro y gestión de sesiones con Context API + LocalStorage.</p>
+
+      <div class="highlight-box">
+        <h4>💡 ¿Cómo funciona?</h4>
+        <p>Como es un proyecto front-end sin backend real, la autenticación se simula con usuarios predefinidos en el código. En producción real, el <code>login()</code> haría un <code>fetch()</code> a un servidor. La estructura es idéntica: recibe email/contraseña, valida, guarda el usuario en el estado y en localStorage.</p>
+      </div>
+
+      <p style="font-size:13px; font-weight:700; margin:16px 0 8px;">Usuarios disponibles para la presentación:</p>
+
+      <div class="cred-box">
+        <div class="cred-label">CEO — Thomas Jose Daruich (Administrador)</div>
+        📧 thomas@tdnutrition.com &nbsp;|&nbsp; 🔑 td2025 &nbsp;|&nbsp; 👑 Rol: Admin
+      </div>
+      <div class="cred-box">
+        <div class="cred-label">CTO — David Medina (Administrador)</div>
+        📧 david@tdnutrition.com &nbsp;|&nbsp; 🔑 td2025 &nbsp;|&nbsp; 👑 Rol: Admin
+      </div>
+      <div class="cred-box">
+        <div class="cred-label">Usuario público de prueba</div>
+        📧 demo@tdnutrition.com &nbsp;|&nbsp; 🔑 demo123 &nbsp;|&nbsp; 👤 Rol: User
+      </div>
+
+      <p style="font-size:13px; font-weight:700; margin:20px 0 8px;">Flujo de autenticación:</p>
+      <ul class="feature-list">
+        <li><strong>Login:</strong> El usuario ingresa email + contraseña → se valida → se guarda en <code>localStorage</code> con la clave <code>td_nutrition_auth</code> → el Navbar muestra el avatar con las iniciales del usuario.</li>
+        <li><strong>Persistencia:</strong> Al recargar la página, el <code>AuthContext</code> lee <code>localStorage</code> y restaura la sesión automáticamente usando <code>useEffect</code>.</li>
+        <li><strong>Registro:</strong> Formulario que acepta nombre, email y contraseña (mínimo 6 caracteres). Valida que el email no esté ya registrado.</li>
+        <li><strong>Logout:</strong> Click en "Cerrar sesión" desde el dropdown del Navbar → limpia el estado y borra <code>localStorage</code> → muestra notificación toast.</li>
+        <li><strong>Rol Admin:</strong> Los usuarios Thomas y David muestran un badge "Admin" en naranja dentro del dropdown del perfil.</li>
+      </ul>
+    </div>
+
+    <!-- 8. Catálogo de Productos -->
+    <div class="section">
+      <div class="section-number">8</div>
+      <h2 class="section-title">Catálogo de Productos</h2>
+      <p class="section-desc">40 productos divididos en 10 categorías fitness, con imágenes generadas por IA.</p>
+
+      <table>
+        <tr><th>Categoría</th><th>Productos</th><th>Rango de precio</th></tr>
+        <tr><td>💪 Proteínas Whey</td><td>Gold Standard, NitroTech, ISO-100, True Whey, Caseína</td><td>$69.99 – $94.99</td></tr>
+        <tr><td>⚗️ Creatina</td><td>Monohidrato, HCl Cápsulas, Creapure 500g</td><td>$24.99 – $39.99</td></tr>
+        <tr><td>⚡ Pre-Entreno</td><td>C4 Original, Ghost Legend, Nox3</td><td>$44.99 – $54.99</td></tr>
+        <tr><td>🔬 Aminoácidos</td><td>BCAA 2:1:1, Glutamina, Amino Energy, EAAs</td><td>$22.99 – $44.99</td></tr>
+        <tr><td>💊 Vitaminas</td><td>Animal Pak, D3+K2, Omega 3, ZMA</td><td>$18.99 – $49.99</td></tr>
+        <tr><td>🔥 Fat Burners</td><td>Hydroxycut, Lipo-6 Black, L-Carnitina</td><td>$27.99 – $44.99</td></tr>
+        <tr><td>📈 Mass Gainers</td><td>Serious Mass, True-Mass, Super Mass</td><td>$79.99 – $99.99</td></tr>
+        <tr><td>🏋️ Mancuernas</td><td>Hexagonales 5kg, 10kg, 20kg, Ajustables</td><td>$29.99 – $249.99</td></tr>
+        <tr><td>🔩 Barras &amp; Discos</td><td>Olímpica 20kg, EZ Curl, Set Discos 50kg</td><td>$89.99 – $199.99</td></tr>
+        <tr><td>🎽 Equipamiento</td><td>Polea, Bolsa boxeo, Cuerda, Bandas, Cinturón, Banco, Guantes, Foam Roller</td><td>$22.99 – $349.99</td></tr>
+      </table>
+
+      <div class="highlight-box">
+        <h4>🖼️ Imágenes de productos</h4>
+        <p>Se generaron 11 imágenes con IA (Google Imagen) que representan cada categoría de productos con estética fitness premium (fondo oscuro, iluminación naranja). Se almacenan localmente en <code>public/images/</code> para que funcionen sin conexión a internet.</p>
+      </div>
+    </div>
+
+    <!-- 9. Componentes Principales -->
+    <div class="section page-break">
+      <div class="section-number">9</div>
+      <h2 class="section-title">Componentes Principales</h2>
+      <p class="section-desc">Descripción de los componentes más importantes y sus props/funcionalidades.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-orange">🧭</div>Navbar</div>
+          <p>Barra de navegación fija con efecto glassmorphism al hacer scroll. Incluye logo, links de navegación, botón de carrito con badge de cantidad, toggle de modo oscuro/claro y área de autenticación (botón "Ingresar" o avatar del usuario con dropdown).</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-blue">🦸</div>Hero</div>
+          <p>Sección visual de impacto en la página de inicio. Tiene animación de entrada con IntersectionObserver, imagen de suplemento animada, pills con características del producto, tags flotantes, tarjeta de "Oferta del Día" y fondo con gradiente + grid pattern.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-green">📦</div>ProductCard</div>
+          <p>Tarjeta individual de producto con imagen, badge de descuento, nombre, marca, precio original y con descuento, calificación con estrellas, botón de agregar al carrito y botón de ver detalle. Efecto hover con elevación.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-purple">🔍</div>ProductModal</div>
+          <p>Modal con animación que muestra el detalle completo del producto: imagen grande, descripción completa, stock disponible, selector de cantidad y botón de agregar al carrito. Se cierra con click en overlay o botón X.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-orange">🛒</div>Cart (Drawer)</div>
+          <p>Panel lateral que se desliza desde la derecha. Lista todos los productos agregados con imagen, nombre, precio y selector de cantidad. Muestra el total y botón de "Finalizar compra". Se cierra con click fuera o en X.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-blue">🔲</div>Skeleton Loader</div>
+          <p>Placeholders animados con efecto shimmer (brillo que se desplaza) que se muestran mientras cargan los productos. Reemplaza spinners genéricos para una UX premium. Implementado con CSS puro (gradiente animado).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Diseño y Estética -->
+    <div class="section">
+      <div class="section-number">10</div>
+      <h2 class="section-title">Diseño y Estética — Design System</h2>
+      <p class="section-desc">Sistema de diseño con tokens CSS, paleta de colores y principios de UI/UX aplicados.</p>
+
+      <p style="font-size:13px; font-weight:700; margin-bottom:12px;">Paleta de colores principal:</p>
+      <div class="palette">
+        <div class="color-swatch">
+          <div class="swatch-color" style="background:#FF7A00;"></div>
+          <div class="swatch-info"><div class="swatch-name">Naranja</div><div class="swatch-hex">#FF7A00</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background:#111111;"></div>
+          <div class="swatch-info"><div class="swatch-name">Negro</div><div class="swatch-hex">#111111</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background:#1a1a1a;"></div>
+          <div class="swatch-info"><div class="swatch-name">Negro suave</div><div class="swatch-hex">#1a1a1a</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background:#1e1e1e; border:1px solid #333;"></div>
+          <div class="swatch-info"><div class="swatch-name">Card</div><div class="swatch-hex">#1e1e1e</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background:#ffffff; border:1px solid #eee;"></div>
+          <div class="swatch-info"><div class="swatch-name">Blanco</div><div class="swatch-hex">#FFFFFF</div></div>
+        </div>
+      </div>
+
+      <table>
+        <tr><th>Variable CSS</th><th>Valor</th><th>Uso</th></tr>
+        <tr><td><code>--color-orange</code></td><td>#FF7A00</td><td>Botones primarios, badges, links activos, acentos</td></tr>
+        <tr><td><code>--bg-primary</code></td><td>#111111</td><td>Fondo principal de la app</td></tr>
+        <tr><td><code>--bg-secondary</code></td><td>#1a1a1a</td><td>Fondos de secciones alternadas</td></tr>
+        <tr><td><code>--bg-card</code></td><td>#1e1e1e</td><td>Tarjetas de productos y componentes</td></tr>
+        <tr><td><code>--font-main</code></td><td>Inter, sans-serif</td><td>Tipografía principal (Google Fonts)</td></tr>
+        <tr><td><code>--font-display</code></td><td>Inter Black</td><td>Títulos y headings de impacto</td></tr>
+      </table>
+
+      <p style="font-size:13px; font-weight:700; margin:20px 0 8px;">Efectos y animaciones implementadas:</p>
+      <ul class="feature-list">
+        <li><strong>Glassmorphism:</strong> El Navbar usa <code>backdrop-filter: blur(20px)</code> al hacer scroll para crear el efecto de vidrio.</li>
+        <li><strong>Skeleton loaders:</strong> Efecto shimmer con gradiente animado mientras cargan los productos.</li>
+        <li><strong>Fade + Slide-Up:</strong> Las secciones de la página aparecen con animación suave al entrar al viewport, usando <code>IntersectionObserver</code>.</li>
+        <li><strong>Hover effects:</strong> Las tarjetas de producto se elevan con <code>translateY(-6px)</code> y sombra naranja al hacer hover.</li>
+        <li><strong>Toast notifications:</strong> Notificaciones animadas que aparecen desde la derecha y desaparecen automáticamente.</li>
+        <li><strong>Modo oscuro/claro:</strong> Transición suave entre temas con <code>data-theme</code> en el HTML y variables CSS.</li>
+      </ul>
+    </div>
+
+    <!-- 11. Flujo de Fetch API -->
+    <div class="section page-break">
+      <div class="section-number">11</div>
+      <h2 class="section-title">Capa de Datos — Fetch API</h2>
+      <p class="section-desc">Cómo se implementó la carga de datos con Fetch API simulando un servicio real.</p>
+
+      <div class="highlight-box">
+        <h4>🔄 Flujo de datos</h4>
+        <p>Los datos de productos están en <code>src/data/products.js</code> como un array local. El archivo <code>src/services/api.js</code> los expone a través de funciones async que simulan la latencia de un servidor real (300-400ms de delay). Esto demuestra el uso correcto de Fetch API con async/await, manejo de errores y estados de carga.</p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-label">services/api.js — Servicio de datos con delay simulado</div>
+        <pre><span class="cm">// Simula latencia de red (como si fuera un servidor real)</span>
+<span class="kw">const</span> <span class="fn">delay</span> = (ms = <span class="num">300</span>) =&gt; <span class="kw">new</span> <span class="fn">Promise</span>(r =&gt; <span class="fn">setTimeout</span>(r, ms));
+
+<span class="kw">export const</span> <span class="fn">fetchProducts</span> = <span class="kw">async</span> (limit = <span class="num">100</span>, skip = <span class="num">0</span>) =&gt; {
+  <span class="kw">await</span> <span class="fn">delay</span>(<span class="num">400</span>);            <span class="cm">// Simula tiempo de respuesta</span>
+  <span class="kw">const</span> all = <span class="fn">getAllProducts</span>(); <span class="cm">// Lee del catálogo local</span>
+  <span class="kw">return</span> { products: all.<span class="fn">slice</span>(skip, skip + limit), total: all.length };
+};
+
+<span class="kw">export const</span> <span class="fn">searchProducts</span> = <span class="kw">async</span> (query) =&gt; {
+  <span class="kw">await</span> <span class="fn">delay</span>(<span class="num">200</span>);
+  <span class="kw">const</span> results = <span class="fn">localSearch</span>(query);
+  <span class="kw">return</span> { products: results, total: results.length };
+};</pre>
+      </div>
+
+      <p style="font-size:13px; margin-top:16px; color:#555;">El hook <code>useProducts</code> consume este servicio usando <code>Promise.all</code> para cargar productos y categorías en paralelo, reduciendo el tiempo de espera total:</p>
+
+      <div class="code-block">
+        <div class="code-label">hooks/useProducts.js — Carga paralela con Promise.all</div>
+        <pre><span class="kw">const</span> [productsData, categoriesData] = <span class="kw">await</span> <span class="fn">Promise.all</span>([
+  <span class="fn">fetchProducts</span>(<span class="num">100</span>),  <span class="cm">// Se ejecutan al mismo tiempo</span>
+  <span class="fn">fetchCategories</span>(),   <span class="cm">// No se espera uno por uno</span>
+]);
+<span class="fn">setProducts</span>(productsData.products);
+<span class="fn">setCategories</span>(categoriesData);</pre>
+      </div>
+    </div>
+
+    <!-- 12. Rutas y Navegación -->
+    <div class="section">
+      <div class="section-number">12</div>
+      <h2 class="section-title">Rutas y Navegación — React Router DOM</h2>
+      <p class="section-desc">Configuración del enrutado del lado del cliente (SPA).</p>
+
+      <div class="code-block">
+        <div class="code-label">App.jsx — Definición de rutas con React Router v7</div>
+        <pre><span class="or">&lt;Routes&gt;</span>
+  <span class="or">&lt;Route</span> path=<span class="str">"/"</span>         element=<span class="str">{&lt;Home /&gt;}</span>     <span class="or">/&gt;</span>
+  <span class="or">&lt;Route</span> path=<span class="str">"/products"</span> element=<span class="str">{&lt;Products /&gt;}</span>  <span class="or">/&gt;</span>
+  <span class="or">&lt;Route</span> path=<span class="str">"/about"</span>    element=<span class="str">{&lt;About /&gt;}</span>     <span class="or">/&gt;</span>
+  <span class="or">&lt;Route</span> path=<span class="str">"/contact"</span>  element=<span class="str">{&lt;Contact /&gt;}</span>   <span class="or">/&gt;</span>
+  <span class="or">&lt;Route</span> path=<span class="str">"/login"</span>    element=<span class="str">{&lt;Login /&gt;}</span>     <span class="or">/&gt;</span>
+  <span class="or">&lt;Route</span> path=<span class="str">"*"</span>         element=<span class="str">{&lt;NotFound /&gt;}</span>  <span class="or">/&gt;</span>  <span class="cm">// 404</span>
+<span class="or">&lt;/Routes&gt;</span></pre>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>NavLink activo:</strong> El componente Navbar usa <code>NavLink</code> (no <code>Link</code>) para que el link de la página actual tenga un estilo diferente (naranja + underline).</li>
+        <li><strong>Scroll al cambiar de ruta:</strong> El hook <code>useScrollToTop</code> escucha <code>useLocation()</code> y hace scroll al top automáticamente.</li>
+        <li><strong>Ruta 404:</strong> El path <code>"*"</code> captura cualquier URL no definida y muestra la página de error personalizada.</li>
+        <li><strong>vercel.json:</strong> Para que React Router funcione en Vercel, se configuró un rewrite que redirige todas las rutas a <code>index.html</code>.</li>
+      </ul>
+    </div>
+
+    <!-- 13. Deploy -->
+    <div class="section">
+      <div class="section-number">13</div>
+      <h2 class="section-title">Deploy y Repositorio</h2>
+      <p class="section-desc">Cómo se versiona el proyecto y cómo se despliega a producción.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-blue">🐙</div>GitHub</div>
+          <p><strong>Repositorio:</strong> github.com/thomasjosed/TD-Nutrition<br /><br />
+          El proyecto usa Git para control de versiones. Se subió con <code>git init</code> → <code>git add .</code> → <code>git commit</code> → <code>git push</code> usando un Personal Access Token de GitHub para autenticación.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-purple">▲</div>Vercel</div>
+          <p><strong>Plataforma:</strong> vercel.com<br /><br />
+          Vercel detecta automáticamente que es un proyecto Vite. Ejecuta <code>npm run build</code> y sirve la carpeta <code>dist/</code>. El <code>vercel.json</code> con las reglas de rewrite garantiza que React Router funcione correctamente en producción.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-label">vercel.json — Configuración para SPA con React Router</div>
+        <pre>{
+  <span class="str">"rewrites"</span>: [
+    { <span class="str">"source"</span>: <span class="str">"/(.*)"</span>, <span class="str">"destination"</span>: <span class="str">"/index.html"</span> }
+  ]
+}</pre>
+      </div>
+    </div>
+
+    <!-- 14. Conclusión -->
+    <div class="section">
+      <div class="section-number">14</div>
+      <h2 class="section-title">Conclusión y Aprendizajes</h2>
+      <p class="section-desc">Síntesis del trabajo realizado y competencias adquiridas.</p>
+
+      <div class="cards cards-3">
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-orange">⚛️</div>React Avanzado</div>
+          <p>Implementamos Context API, Hooks personalizados (useProducts, useIntersectionObserver), composición de componentes y React Router para una SPA completa.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-blue">🎨</div>UI/UX Premium</div>
+          <p>Diseño dark mode profesional con glassmorphism, animaciones CSS, skeleton loaders, hover effects y diseño completamente responsive para mobile y desktop.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-icon icon-green">🚀</div>Flujo profesional</div>
+          <p>Utilizamos Vite para development y build, Git + GitHub para versionado y Vercel para deploy continuo. El mismo flujo que se usa en empresas de software reales.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top:24px;">
+        <h4>📊 Resumen del proyecto en números</h4>
+        <p>
+          <span class="pill pill-orange">86 módulos compilados</span>
+          <span class="pill pill-blue">40 productos</span>
+          <span class="pill pill-green">10 categorías</span>
+          <span class="pill pill-gray">6 páginas</span>
+          <span class="pill pill-orange">11 imágenes IA</span>
+          <span class="pill pill-blue">4 Contexts</span>
+          <span class="pill pill-green">3 Custom Hooks</span>
+          <span class="pill pill-gray">12+ componentes</span>
+          <span class="pill pill-orange">3 usuarios demo</span>
+          <span class="pill pill-blue">LocalStorage</span>
+          <span class="pill pill-green">CSS Modules</span>
+          <span class="pill pill-gray">React Router v7</span>
+        </p>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <div class="doc-footer">
+    <strong>TD Nutrition</strong> — Trabajo Final de Front-End &nbsp;·&nbsp;
+    Thomas Jose Daruich &amp; David Medina &nbsp;·&nbsp;
+    <span>github.com/thomasjosed/TD-Nutrition</span>
+  </div>
+
+</div>
+</body>
+</html>

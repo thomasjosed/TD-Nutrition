@@ -1,0 +1,22 @@
+.stars {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.sm .star, .sm .starHalf, .sm .starEmpty { font-size: 0.85rem; }
+.md .star, .md .starHalf, .md .starEmpty { font-size: 1.1rem; }
+.lg .star, .lg .starHalf, .lg .starEmpty { font-size: 1.4rem; }
+
+.star { color: #fbbf24; }
+.starEmpty { color: #4b4b4b; }
+.starHalf {
+  color: #fbbf24;
+  position: relative;
+  /* Half-star effect via gradient clip */
+  background: linear-gradient(90deg, #fbbf24 50%, #4b4b4b 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .starEmpty { color: #d1d5db; }

@@ -1,0 +1,237 @@
+/* ── Products Page Styles ── */
+
+.page {
+  min-height: 100vh;
+  padding-top: 72px;
+}
+
+/* ── Page Header ── */
+.pageHeader {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--bg-border);
+  padding: var(--space-2xl) 0 var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.pageHeader::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--color-orange-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.headerContent {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-top: var(--space-sm);
+}
+
+.pageSubtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-orange);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ── Filters Bar ── */
+.filtersBar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--bg-border);
+  padding: var(--space-md) 0;
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.filtersTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.sortSelect {
+  padding: 8px 14px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--bg-border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.sortSelect:focus {
+  border-color: var(--color-orange);
+  outline: none;
+}
+
+.viewToggle {
+  display: flex;
+  background: var(--bg-card);
+  border: 1.5px solid var(--bg-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.viewBtn {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.viewBtn:hover { color: var(--color-orange); }
+
+.viewBtnActive {
+  background: var(--color-orange) !important;
+  color: white !important;
+}
+
+/* ── Products Section ── */
+.productsSection {
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+/* ── Active Filters ── */
+.activeFilters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.filterTag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-orange-glow);
+  border: 1px solid var(--color-orange-glow-strong);
+  color: var(--color-orange);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+}
+
+.filterTag button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.filterTag button:hover { opacity: 0.7; }
+
+.clearFilters {
+  background: transparent;
+  border: 1px solid var(--bg-border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.clearFilters:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* ── Products Grid ── */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.listView {
+  grid-template-columns: 1fr;
+}
+
+/* ── Error / Empty States ── */
+.errorState,
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl);
+  text-align: center;
+  gap: var(--space-md);
+}
+
+.errorIcon,
+.emptyIcon {
+  font-size: 3.5rem;
+}
+
+.errorState h3,
+.emptyState h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+
+.errorState p,
+.emptyState p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 400px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .filtersTop { flex-direction: column; align-items: stretch; }
+  .headerContent { flex-direction: column; align-items: flex-start; }
+}

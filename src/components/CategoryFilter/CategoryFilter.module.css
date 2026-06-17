@@ -1,0 +1,69 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* Fade masks on edges */
+.wrapper::before,
+.wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.scroll {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  padding: var(--space-sm) var(--space-lg);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1.5px solid var(--bg-border);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.2px;
+}
+
+.chip:hover {
+  border-color: var(--color-orange-glow-strong);
+  color: var(--color-orange);
+  background: var(--color-orange-glow);
+}
+
+.chipActive {
+  background: var(--color-orange) !important;
+  border-color: var(--color-orange) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px var(--color-orange-glow-strong);
+}

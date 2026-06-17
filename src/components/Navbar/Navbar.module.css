@@ -1,0 +1,293 @@
+/* ── Navbar Component Styles ── */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-navbar);
+  padding: 0;
+  transition: all var(--transition-base);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--bg-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(245, 245, 245, 0.95);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: var(--space-lg);
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-white);
+  background: var(--color-orange);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 1px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.logoDot {
+  color: var(--color-orange);
+}
+
+/* ── Nav Links ── */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.navLink {
+  position: relative;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 20px;
+  height: 2px;
+  background: var(--color-orange);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--color-orange-glow);
+}
+
+.navLink:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navLinkActive {
+  color: var(--color-orange) !important;
+  background: var(--color-orange-glow) !important;
+}
+
+.navLinkActive::after {
+  transform: translateX(-50%) scaleX(1) !important;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.iconBtn:hover {
+  background: var(--color-orange-glow);
+  border-color: var(--color-orange-glow-strong);
+  color: var(--color-orange);
+}
+
+/* ── Cart Button ── */
+.cartBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-orange);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 15px var(--color-orange-glow-strong);
+}
+
+.cartBtn:hover {
+  background: var(--color-orange-light);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px var(--color-orange-glow-strong);
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--color-white);
+  color: var(--color-orange);
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  animation: bounceIn 0.3s ease;
+  line-height: 1;
+}
+
+/* ── Hamburger (Mobile) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  cursor: pointer;
+  padding: 10px;
+  transition: all var(--transition-fast);
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+.hamburger:hover {
+  border-color: var(--color-orange-glow-strong);
+}
+
+.hamburgerOpen span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerOpen span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* ── Mobile overlay ── */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: calc(var(--z-navbar) - 1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .mobileOverlay { display: block; }
+
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    height: 100vh;
+    width: 260px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--bg-border);
+    padding: 100px var(--space-lg) var(--space-lg);
+    gap: var(--space-xs);
+    z-index: var(--z-navbar);
+    transition: right var(--transition-slow);
+    box-shadow: -4px 0 30px rgba(0,0,0,0.3);
+  }
+
+  .navOpen {
+    right: 0;
+  }
+
+  .navLink {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* -- Login button -- */
+.loginBtn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 16px; background: var(--color-orange); color: white;
+  border-radius: var(--radius-md); text-decoration: none;
+  font-size: 0.85rem; font-weight: 700; transition: all var(--transition-fast); white-space: nowrap;
+}
+.loginBtn:hover { background: var(--color-orange-dark); transform: translateY(-1px); box-shadow: 0 4px 16px var(--color-orange-glow-strong); }
+
+/* -- User menu -- */
+.userMenu { position: relative; }
+.userBtn { display: flex; align-items: center; gap: 8px; padding: 5px 10px 5px 5px; background: var(--bg-card); border: 1.5px solid var(--bg-border); border-radius: var(--radius-full); cursor: pointer; transition: all var(--transition-fast); color: var(--text-primary); }
+.userBtn:hover { border-color: var(--color-orange-glow-strong); background: var(--color-orange-glow); }
+.avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--color-orange); color: white; font-size: 0.68rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.userName { font-size: 0.84rem; font-weight: 600; max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chevron { color: var(--text-muted); transition: transform var(--transition-fast); }
+.chevronUp { transform: rotate(180deg); }
+.userDropdown { position: absolute; top: calc(100% + 10px); right: 0; min-width: 240px; background: var(--bg-card); border: 1px solid var(--bg-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 200; overflow: hidden; animation: slideUp 0.2s ease; }
+.userDropdownHeader { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-lg); background: var(--bg-secondary); }
+.avatarLg { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--color-orange), var(--color-orange-dark)); color: white; font-size: 0.9rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ddName { font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+.ddEmail { font-size: 0.75rem; color: var(--text-muted); }
+.adminBadge { display: inline-block; font-size: 0.65rem; font-weight: 700; color: var(--color-orange); background: var(--color-orange-glow); border: 1px solid var(--color-orange-glow-strong); padding: 2px 8px; border-radius: var(--radius-full); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+.ddDivider { height: 1px; background: var(--bg-border); }
+.ddItem { display: flex; align-items: center; gap: 10px; width: 100%; padding: var(--space-md) var(--space-lg); background: none; border: none; color: var(--text-secondary); font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: all var(--transition-fast); text-align: left; }
+.ddItem:hover { background: var(--bg-secondary); color: #ef4444; }

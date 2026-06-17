@@ -1,0 +1,231 @@
+/* ── ProductCard Component Styles ── */
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  animation: slideUp 0.4s ease both;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-orange-glow-strong);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+/* ── Image Area ── */
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}
+
+/* ── Overlay (hover) ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17,17,17,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  backdrop-filter: blur(2px);
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.viewLabel {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--color-orange);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  transform: translateY(10px);
+  transition: transform var(--transition-base);
+}
+
+.card:hover .viewLabel {
+  transform: translateY(0);
+}
+
+/* ── Badges ── */
+.discountBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--color-orange);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.3px;
+  z-index: 1;
+}
+
+.category {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(17,17,17,0.85);
+  color: var(--color-white-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+/* ── Content ── */
+.content {
+  padding: var(--space-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brand {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Rating ── */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ratingValue {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ── Pricing ── */
+.pricing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.priceCurrent {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-orange);
+}
+
+.priceOld {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* ── Stock ── */
+.stock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.stockDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.inStock { background: #22c55e; }
+.lowStock { background: #f97316; }
+
+.stockText {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ── Add to Cart Button ── */
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-top: 1px solid var(--bg-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.2px;
+}
+
+.addBtn:hover {
+  background: var(--color-orange);
+  color: white;
+}
+
+.addBtnInCart {
+  color: var(--color-orange);
+}
+
+.addBtnAdding {
+  background: #22c55e !important;
+  color: white !important;
+}
+
+.checkIcon {
+  width: 16px;
+  height: 16px;
+  animation: bounceIn 0.3s ease;
+}

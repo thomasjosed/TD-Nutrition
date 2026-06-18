@@ -1,0 +1,646 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Gold Standard Whey 100%",
+      "brand": "Optimum Nutrition",
+      "category": "proteinas",
+      "price": 79.99,
+      "discountPercentage": 10,
+      "rating": 4.9,
+      "stock": 85,
+      "description": "La proteína de suero más vendida del mundo. 24 g de proteína por porción con aminoácidos esenciales y BCAAs. Sabor Chocolate, Vainilla y Frutilla. Bolsa 2.27 kg.",
+      "thumbnail": "/images/whey_protein.png",
+      "images": [
+        "/images/whey_protein.png"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "NitroTech Whey Isolate",
+      "brand": "MuscleTech",
+      "category": "proteinas",
+      "price": 89.99,
+      "discountPercentage": 15,
+      "rating": 4.7,
+      "stock": 52,
+      "description": "Fórmula de proteína de suero aislada y microfiltrada. 30 g de proteína, 6.8 g de BCAAs y solo 1 g de grasa por porción. Sabor Chocolate Fudge. 1.81 kg.",
+      "thumbnail": "/images/whey_protein.png",
+      "images": [
+        "/images/whey_protein.png"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "ISO-100 Hidrolizada",
+      "brand": "Dymatize",
+      "category": "proteinas",
+      "price": 94.99,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 40,
+      "description": "Proteína 100% hidrolizada de suero de leche. Absorción ultrarrápida. 25 g de proteína, 5.5 g de BCAAs por porción. Sin lactosa, sin gluten. 2.27 kg.",
+      "thumbnail": "/images/whey_protein.png",
+      "images": [
+        "/images/whey_protein.png"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "True Whey Protein",
+      "brand": "BSN",
+      "category": "proteinas",
+      "price": 69.99,
+      "discountPercentage": 5,
+      "rating": 4.6,
+      "stock": 65,
+      "description": "Blend de proteínas de suero concentrado e hidrolizado. 25 g de proteína por servicio. Excelente sabor, mezcla fácil. Disponible en Vainilla, Chocolate y Cookies & Cream. 1.8 kg.",
+      "thumbnail": "/images/whey_protein.png",
+      "images": [
+        "/images/whey_protein.png"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Caseína Micelar Nocturna",
+      "brand": "Optimum Nutrition",
+      "category": "proteinas",
+      "price": 74.99,
+      "discountPercentage": 0,
+      "rating": 4.5,
+      "stock": 38,
+      "description": "Proteína de digestión lenta ideal para tomar antes de dormir. Libera aminoácidos hasta por 7 horas. 24 g de proteína por porción. 1.8 kg en Chocolate.",
+      "thumbnail": "/images/whey_protein.png",
+      "images": [
+        "/images/whey_protein.png"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Creatina Monohidrato 300g",
+      "brand": "Dymatize",
+      "category": "creatina",
+      "price": 24.99,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 120,
+      "description": "Creatina monohidrato micronizada en polvo. 5 g por porción, 60 servicios. Aumenta fuerza, potencia y rendimiento anaeróbico. Sin sabor, se mezcla perfectamente.",
+      "thumbnail": "/images/creatina.png",
+      "images": [
+        "/images/creatina.png"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Creatine HCl 240 cáps",
+      "brand": "MuscleTech",
+      "category": "creatina",
+      "price": 34.99,
+      "discountPercentage": 8,
+      "rating": 4.6,
+      "stock": 75,
+      "description": "Creatina Clorhidrato de alta biodisponibilidad. Mayor absorción que la monohidrato con dosis menores. 240 cápsulas, sin necesidad de carga.",
+      "thumbnail": "/images/creatina.png",
+      "images": [
+        "/images/creatina.png"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Creatina Creapure 500g",
+      "brand": "Cellucor",
+      "category": "creatina",
+      "price": 39.99,
+      "discountPercentage": 12,
+      "rating": 4.9,
+      "stock": 60,
+      "description": "Creatina certificada Creapure, la más pura del mercado. 100 servicios de 5 g. Aumenta la síntesis de ATP para mayor energía explosiva en entrenamientos intensos.",
+      "thumbnail": "/images/creatina.png",
+      "images": [
+        "/images/creatina.png"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "C4 Original Pre-Workout",
+      "brand": "Cellucor",
+      "category": "pre-entreno",
+      "price": 44.99,
+      "discountPercentage": 15,
+      "rating": 4.7,
+      "stock": 90,
+      "description": "El pre-entreno más vendido de EE.UU. Cafeína 150 mg, Beta-Alanina 1.6 g, Creatina Nitrato. Explosión de energía, enfoque extremo y pump insuperable. 60 servicios.",
+      "thumbnail": "/images/pre_entreno.png",
+      "images": [
+        "/images/pre_entreno.png"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Ghost Legend Pre-Workout",
+      "brand": "Ghost",
+      "category": "pre-entreno",
+      "price": 54.99,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 45,
+      "description": "Pre-entreno premium con 250 mg de cafeína, L-Citrulina 4 g, Nootrópicos para foco mental total. Transparencia total en etiqueta. Sabores exclusivos. 40 servicios.",
+      "thumbnail": "/images/pre_entreno.png",
+      "images": [
+        "/images/pre_entreno.png"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Nox3 Pre-Entreno",
+      "brand": "BSN",
+      "category": "pre-entreno",
+      "price": 49.99,
+      "discountPercentage": 20,
+      "rating": 4.5,
+      "stock": 55,
+      "description": "Fórmula avanzada con L-Citrulina 6 g, Arginina y Beta-Alanina. Pump máximo y resistencia prolongada. Cafeína 200 mg de liberación dual. 30 servicios, sabor Fruit Punch.",
+      "thumbnail": "/images/pre_entreno.png",
+      "images": [
+        "/images/pre_entreno.png"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "BCAA 2:1:1 400g",
+      "brand": "Optimum Nutrition",
+      "category": "aminoacidos",
+      "price": 29.99,
+      "discountPercentage": 10,
+      "rating": 4.7,
+      "stock": 100,
+      "description": "BCAAs en proporción 2:1:1 (Leucina, Isoleucina, Valina). Previene el catabolismo muscular, mejora la recuperación y reduce el dolor post-entrenamiento. 80 servicios.",
+      "thumbnail": "/images/aminoacidos.png",
+      "images": [
+        "/images/aminoacidos.png"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Glutamina Pura 300g",
+      "brand": "Dymatize",
+      "category": "aminoacidos",
+      "price": 22.99,
+      "discountPercentage": 0,
+      "rating": 4.6,
+      "stock": 80,
+      "description": "L-Glutamina micronizada de grado farmacéutico. 5 g por servicio, 60 porciones. Favorece la recuperación, refuerza el sistema inmune y protege la masa muscular.",
+      "thumbnail": "/images/aminoacidos.png",
+      "images": [
+        "/images/aminoacidos.png"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Amino Energy 270g",
+      "brand": "Optimum Nutrition",
+      "category": "aminoacidos",
+      "price": 34.99,
+      "discountPercentage": 5,
+      "rating": 4.8,
+      "stock": 70,
+      "description": "Mezcla de aminoácidos esenciales y energizantes naturales (café verde, té verde). Tomar antes, durante o después del entrenamiento. 30 servicios. Sabor Watermelon.",
+      "thumbnail": "/images/aminoacidos.png",
+      "images": [
+        "/images/aminoacidos.png"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "EAAs Esenciales 350g",
+      "brand": "Ghost",
+      "category": "aminoacidos",
+      "price": 44.99,
+      "discountPercentage": 0,
+      "rating": 4.7,
+      "stock": 50,
+      "description": "Los 9 aminoácidos esenciales que el cuerpo no puede producir. Fórmula 100% transparente, sin propietarios. Ideal para mantener y construir músculo magro. 35 servicios.",
+      "thumbnail": "/images/aminoacidos.png",
+      "images": [
+        "/images/aminoacidos.png"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Animal Pak Multivitamínico",
+      "brand": "Universal Nutrition",
+      "category": "vitaminas",
+      "price": 49.99,
+      "discountPercentage": 10,
+      "rating": 4.8,
+      "stock": 60,
+      "description": "El multivitamínico más completo para atletas. 44 packs con vitaminas, minerales, antioxidantes, aminoácidos y enzimas digestivas. El favorito de los culturistas profesionales.",
+      "thumbnail": "/images/vitaminas.png",
+      "images": [
+        "/images/vitaminas.png"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Vitamina D3 + K2 5000 UI",
+      "brand": "MuscleTech",
+      "category": "vitaminas",
+      "price": 18.99,
+      "discountPercentage": 0,
+      "rating": 4.7,
+      "stock": 130,
+      "description": "Combinación sinérgica de Vitamina D3 5000 UI y Vitamina K2 100 mcg. Fortalece huesos, regula testosterona y mejora la salud cardiovascular. 90 cápsulas.",
+      "thumbnail": "/images/vitaminas.png",
+      "images": [
+        "/images/vitaminas.png"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Omega 3 Fish Oil 200 caps",
+      "brand": "Optimum Nutrition",
+      "category": "vitaminas",
+      "price": 24.99,
+      "discountPercentage": 8,
+      "rating": 4.6,
+      "stock": 95,
+      "description": "Aceite de pescado de alta pureza. 300 mg de EPA y 200 mg de DHA por cápsula. Reduce inflamación, protege articulaciones y mejora la salud cardiovascular. 200 perlas.",
+      "thumbnail": "/images/vitaminas.png",
+      "images": [
+        "/images/vitaminas.png"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "ZMA Zinc + Magnesio + B6",
+      "brand": "Dymatize",
+      "category": "vitaminas",
+      "price": 19.99,
+      "discountPercentage": 0,
+      "rating": 4.5,
+      "stock": 85,
+      "description": "Fórmula ZMA con Zinc, Magnesio y Vitamina B6. Mejora la calidad del sueño, optimiza los niveles de testosterona y acelera la recuperación muscular. 90 cápsulas.",
+      "thumbnail": "/images/vitaminas.png",
+      "images": [
+        "/images/vitaminas.png"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Hydroxycut Hardcore Elite",
+      "brand": "MuscleTech",
+      "category": "fat-burners",
+      "price": 39.99,
+      "discountPercentage": 20,
+      "rating": 4.4,
+      "stock": 70,
+      "description": "Termogénico de alta potencia con cafeína 200 mg, coleus forskohlii y L-Teanina. Acelera el metabolismo, quema grasa y aumenta la energía sin pérdida de músculo. 110 caps.",
+      "thumbnail": "/images/fat_burner.png",
+      "images": [
+        "/images/fat_burner.png"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Lipo-6 Black Ultra Concentrado",
+      "brand": "Nutrex",
+      "category": "fat-burners",
+      "price": 44.99,
+      "discountPercentage": 10,
+      "rating": 4.5,
+      "stock": 50,
+      "description": "Termogénico de máxima concentración en cápsulas líquidas de absorción rápida. Quema grasa, suprime el apetito y mejora el enfoque mental. 60 cápsulas.",
+      "thumbnail": "/images/fat_burner.png",
+      "images": [
+        "/images/fat_burner.png"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "L-Carnitina Líquida 3000 mg",
+      "brand": "Cellucor",
+      "category": "fat-burners",
+      "price": 27.99,
+      "discountPercentage": 5,
+      "rating": 4.6,
+      "stock": 90,
+      "description": "L-Carnitina Tartrato líquida de alta concentración. Transporta los ácidos grasos a las mitocondrias para convertirlos en energía. 3000 mg por servicio, 16 porciones. Sabor Berry.",
+      "thumbnail": "/images/fat_burner.png",
+      "images": [
+        "/images/fat_burner.png"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Serious Mass 6.8 kg",
+      "brand": "Optimum Nutrition",
+      "category": "mass-gainers",
+      "price": 99.99,
+      "discountPercentage": 12,
+      "rating": 4.7,
+      "stock": 35,
+      "description": "El ganador de peso más potente del mercado. 1250 calorías, 50 g de proteína y 250 g de carbohidratos por porción doble. Ideal para hardgainers. 6.8 kg.",
+      "thumbnail": "/images/mass_gainer.png",
+      "images": [
+        "/images/mass_gainer.png"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "True-Mass 1200 Calories",
+      "brand": "BSN",
+      "category": "mass-gainers",
+      "price": 84.99,
+      "discountPercentage": 8,
+      "rating": 4.6,
+      "stock": 45,
+      "description": "Mass gainer con 1200 calorías, 50 g de proteína multi-fuente y 215 g de carbohidratos por porción. Enriquecido con MCTs y fibra. Sabor Chocolate Milkshake. 4.5 kg.",
+      "thumbnail": "/images/mass_gainer.png",
+      "images": [
+        "/images/mass_gainer.png"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Super Mass Gainer 5.4 kg",
+      "brand": "Dymatize",
+      "category": "mass-gainers",
+      "price": 79.99,
+      "discountPercentage": 15,
+      "rating": 4.5,
+      "stock": 30,
+      "description": "Fórmula de mass gainer con 1270 calorías y 52 g de proteína por porción. Rico en vitaminas y minerales. Ideal para fases de volumen. Sabor Rich Chocolate. 5.4 kg.",
+      "thumbnail": "/images/mass_gainer.png",
+      "images": [
+        "/images/mass_gainer.png"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Mancuernas Hexagonales 5 kg (par)",
+      "brand": "TD Sport",
+      "category": "mancuernas",
+      "price": 29.99,
+      "discountPercentage": 0,
+      "rating": 4.7,
+      "stock": 60,
+      "description": "Par de mancuernas hexagonales de hierro fundido con recubrimiento de caucho antideslizante. Diseño hexagonal para que no rueden. Agarre ergonómico con textura. Ideales para casa y gimnasio.",
+      "thumbnail": "/images/mancuernas.png",
+      "images": [
+        "/images/mancuernas.png"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Mancuernas Hexagonales 10 kg (par)",
+      "brand": "TD Sport",
+      "category": "mancuernas",
+      "price": 54.99,
+      "discountPercentage": 5,
+      "rating": 4.8,
+      "stock": 50,
+      "description": "Par de mancuernas hexagonales de 10 kg. Hierro fundido con recubrimiento de caucho premium. Mango cromado antideslizante. Resistentes al impacto. Perfectas para press, curl y remo.",
+      "thumbnail": "/images/mancuernas.png",
+      "images": [
+        "/images/mancuernas.png"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Mancuernas Hexagonales 20 kg (par)",
+      "brand": "TD Sport",
+      "category": "mancuernas",
+      "price": 99.99,
+      "discountPercentage": 10,
+      "rating": 4.9,
+      "stock": 30,
+      "description": "Par de mancuernas hexagonales de 20 kg para usuarios avanzados. Fundición de hierro de alta calidad, recubrimiento de goma gruesa antideslizante. Manija roliza con moleteado profesional.",
+      "thumbnail": "/images/mancuernas.png",
+      "images": [
+        "/images/mancuernas.png"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Set Mancuernas Ajustables 5-25 kg",
+      "brand": "Bowflex",
+      "category": "mancuernas",
+      "price": 249.99,
+      "discountPercentage": 20,
+      "rating": 4.8,
+      "stock": 15,
+      "description": "Sistema de mancuernas ajustables que reemplaza 15 pares. Ajuste rápido de 5 a 25 kg en incrementos de 2.5 kg. Diseño compacto con base de almacenamiento incluida.",
+      "thumbnail": "/images/mancuernas.png",
+      "images": [
+        "/images/mancuernas.png"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Barra Olímpica 20 kg - 220 cm",
+      "brand": "TD Sport",
+      "category": "barras",
+      "price": 189.99,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 25,
+      "description": "Barra olímpica de acero de alta resistencia. 220 cm de longitud, 20 kg de peso, aguanta hasta 1500 kg. Rodamientos de agujas para máxima rotación. Moleteado doble para mejor agarre. Anillos de 50 mm.",
+      "thumbnail": "/images/barras.png",
+      "images": [
+        "/images/barras.png"
+      ]
+    },
+    {
+      "id": 31,
+      "title": "Barra EZ Curl Olímpica",
+      "brand": "TD Sport",
+      "category": "barras",
+      "price": 89.99,
+      "discountPercentage": 5,
+      "rating": 4.7,
+      "stock": 40,
+      "description": "Barra W (EZ Curl) para ejercicios de bíceps y tríceps. 120 cm, 10 kg. Diseño ondulado que reduce la tensión en muñecas y codos. Anillos de 50 mm compatibles con discos olímpicos.",
+      "thumbnail": "/images/barras.png",
+      "images": [
+        "/images/barras.png"
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Set Discos Olímpicos 50 kg",
+      "brand": "TD Sport",
+      "category": "barras",
+      "price": 199.99,
+      "discountPercentage": 10,
+      "rating": 4.6,
+      "stock": 20,
+      "description": "Set completo de discos olímpicos recubiertos de caucho: 2x20 kg + 2x10 kg + 2x5 kg. Agujero central de 50 mm. Recubrimiento de goma que protege el piso y reduce el ruido.",
+      "thumbnail": "/images/barras.png",
+      "images": [
+        "/images/barras.png"
+      ]
+    },
+    {
+      "id": 33,
+      "title": "Polea Funcional Doble Cable",
+      "brand": "TD Sport",
+      "category": "equipamiento",
+      "price": 349.99,
+      "discountPercentage": 15,
+      "rating": 4.7,
+      "stock": 10,
+      "description": "Torre de polea doble con cables cruzados. Estructura de acero 2x2\" de alto espesor. Soporta hasta 100 kg por lado. Incluye barra, cuerda y asas intercambiables.",
+      "thumbnail": "/images/equipamiento.png",
+      "images": [
+        "/images/equipamiento.png"
+      ]
+    },
+    {
+      "id": 34,
+      "title": "Bolsa de Boxeo Rellena 40 kg",
+      "brand": "Everlast",
+      "category": "equipamiento",
+      "price": 129.99,
+      "discountPercentage": 10,
+      "rating": 4.7,
+      "stock": 22,
+      "description": "Bolsa de boxeo de cuero sintético de alta resistencia. 40 kg rellena con arena, aserrín y tela. Aros de acero reforzados para colgar. 120 cm de largo. Incluye cadena y swivel.",
+      "thumbnail": "/images/boxeo.png",
+      "images": [
+        "/images/boxeo.png"
+      ]
+    },
+    {
+      "id": 35,
+      "title": "Cuerda de Salto Profesional Speed",
+      "brand": "TD Sport",
+      "category": "equipamiento",
+      "price": 24.99,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 100,
+      "description": "Cuerda de salto de velocidad con cable de acero revestido. Rodamientos de bolas de alta velocidad. Manijas ergonómicas con grip antideslizante. Longitud ajustable. Ideal para CrossFit y boxeo.",
+      "thumbnail": "/images/equipamiento.png",
+      "images": [
+        "/images/equipamiento.png"
+      ]
+    },
+    {
+      "id": 36,
+      "title": "Set Bandas de Resistencia x5",
+      "brand": "TD Sport",
+      "category": "equipamiento",
+      "price": 34.99,
+      "discountPercentage": 15,
+      "rating": 4.7,
+      "stock": 80,
+      "description": "Set de 5 bandas elásticas de látex natural con resistencias de 5 a 45 kg. Ideales para activación muscular, rehabilitación y entrenamiento funcional. Incluye bolsa de transporte.",
+      "thumbnail": "/images/equipamiento.png",
+      "images": [
+        "/images/equipamiento.png"
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Cinturón de Levantamiento Cuero",
+      "brand": "Harbinger",
+      "category": "equipamiento",
+      "price": 54.99,
+      "discountPercentage": 5,
+      "rating": 4.8,
+      "stock": 55,
+      "description": "Cinturón de levantamiento de cuero genuino de 10 mm de espesor. Brinda soporte lumbar en sentadilla, peso muerto y press. Hebilla doble de acero. Disponible en tallas S a XXL.",
+      "thumbnail": "/images/equipamiento.png",
+      "images": [
+        "/images/equipamiento.png"
+      ]
+    },
+    {
+      "id": 38,
+      "title": "Banco de Pesas Multiposición",
+      "brand": "TD Sport",
+      "category": "equipamiento",
+      "price": 219.99,
+      "discountPercentage": 20,
+      "rating": 4.8,
+      "stock": 18,
+      "description": "Banco de pesas ajustable en 7 posiciones (0° a 85°). Estructura de acero reforzado, soporta hasta 300 kg. Tapizado acolchado con cuero PU. Patas antideslizantes.",
+      "thumbnail": "/images/equipamiento.png",
+      "images": [
+        "/images/equipamiento.png"
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Guantes de Boxeo Entrenamiento",
+      "brand": "Everlast",
+      "category": "equipamiento",
+      "price": 49.99,
+      "discountPercentage": 0,
+      "rating": 4.6,
+      "stock": 65,
+      "description": "Guantes de boxeo de cuero sintético premium con relleno de espuma de alta densidad. Cierre de velcro. Disponible en 10, 12 y 14 oz. Ideal para bolsa, sparring y pad work.",
+      "thumbnail": "/images/boxeo.png",
+      "images": [
+        "/images/boxeo.png"
+      ]
+    },
+    {
+      "id": 40,
+      "title": "Foam Roller Masaje Muscular",
+      "brand": "TD Sport",
+      "category": "equipamiento",
+      "price": 22.99,
+      "discountPercentage": 0,
+      "rating": 4.7,
+      "stock": 90,
+      "description": "Rodillo de espuma de alta densidad para masaje miofascial. Superficie texturizada para mayor efectividad. 45 cm de longitud, 15 cm de diámetro. Reduce la tensión muscular y acelera la recuperación.",
+      "thumbnail": "/images/equipamiento.png",
+      "images": [
+        "/images/equipamiento.png"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "slug": "proteinas",
+      "label": "Proteínas Whey"
+    },
+    {
+      "slug": "creatina",
+      "label": "Creatina"
+    },
+    {
+      "slug": "pre-entreno",
+      "label": "Pre-Entreno"
+    },
+    {
+      "slug": "aminoacidos",
+      "label": "Aminoácidos"
+    },
+    {
+      "slug": "vitaminas",
+      "label": "Vitaminas"
+    },
+    {
+      "slug": "fat-burners",
+      "label": "Fat Burners"
+    },
+    {
+      "slug": "mass-gainers",
+      "label": "Mass Gainers"
+    },
+    {
+      "slug": "mancuernas",
+      "label": "Mancuernas"
+    },
+    {
+      "slug": "barras",
+      "label": "Barras & Discos"
+    },
+    {
+      "slug": "equipamiento",
+      "label": "Equipamiento"
+    }
+  ]
+}
